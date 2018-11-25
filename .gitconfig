@@ -1,0 +1,12 @@
+[core]
+    excludesfile = /Users/nicolasmissika/.gitignore_global
+	editor = nano
+[user]
+    name = Nicolas Missika
+    email = nmissika@synthesio.com
+[alias]
+	tree = log --oneline --graph --pretty=format:'%C(red)%h %Creset%s %C(blue)%an %C(green)%ci %C(yellow)%d %Creset'
+    alias = aliases config --get-regexp alias
+    please = push --force-with-lease
+    mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
+
