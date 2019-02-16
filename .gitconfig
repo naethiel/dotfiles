@@ -6,7 +6,14 @@
     email = nmissika@synthesio.com
 [alias]
 	tree = log --oneline --graph --pretty=format:'%C(red)%h %Creset%s %C(blue)%an %C(green)%ci %C(yellow)%d %Creset'
-    alias = aliases config --get-regexp alias
-    please = push --force-with-lease
-    mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
-
+	alias = aliases config --get-regexp alias
+	please = push --force-with-lease
+	mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
+	fap = fetch --all -p
+	rud = rebase upstream/devel
+	st = status
+	co = checkout
+	cm = commit -m
+	l = log -20 --pretty=format:'%C(magenta)%h%Creset - %<(24)%C(cyan)%an%Creset %C(dim red)%ar%Creset : %s' --no-merges
+	lc = log -20 --pretty=format:'%C(magenta)%h%Creset - %<(24)%C(cyan)%an%Creset %C(dim red)%ar%Creset : %s'
+	lb = branch -a

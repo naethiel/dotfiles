@@ -96,6 +96,12 @@ alias fuuuck="fuck"
 alias fuuuuck="fuck"
 alias fuuuuuck="fuck"
 
+alias gut="git"
+alias got="git"
+
+# fuck this shit in particular
+alias nuke="rm -r"
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
