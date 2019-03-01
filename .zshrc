@@ -86,9 +86,6 @@ export CHNZ_GITLAB_DEFAULT_GROUP="frontend"
 export LANG=fr_FR.UTF-8
 export LC_CTYPE=fr_FR.UTF-8
 
-# upgrades for ls
-alias lla="ls -la"
-
 # When the keyboard doesn't like you
 eval $(thefuck --alias)
 alias fuuck="fuck"
