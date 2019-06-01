@@ -4,14 +4,14 @@ set backspace=indent,eol,start
 set tabstop=2
 set shiftwidth=2
 set expandtab
-
+let mapleader=","
 " Plugins configuration
 call plug#begin()
 
 " Nerdtree and git extension
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
-nnoremap <C-f> :NERDTreeTabsToggle<cr>
+nnoremap <C-b> :NERDTreeTabsToggle<cr>
 let NERDTreeIgnore = ['\.pyc$']
 
 " Themes
@@ -26,18 +26,6 @@ Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
 let g:jsx_ext_required = 0
 
-" Linting
-Plug 'w0rp/ale'
-
-let g:ale_fixers = {
-\    'javascript': ['eslint'],
-\    'scss': ['prettier'],
-\    'less': ['prettier']
-\}
-let g:ale_fix_on_save = 1
-let g:ale_lint_on_save = 1
-let g:ale_lint_on_text_changed = 1
-
 " Less, Scss and stuff
 Plug 'lunaru/vim-less'
 Plug 'cakebaker/scss-syntax.vim'
@@ -51,11 +39,27 @@ Plug 'vim-airline/vim-airline-themes'
 let g:airline_theme = 'nord'
 let g:airline_powerline_fonts = 1
 
-" Fuzzy finder
+" Fuzzy universal finder
 Plug 'junegunn/fzf' 
-nmap <C-p> :FZF<cr>
+Plug 'junegunn/fzf.vim'
+nmap <C-p> :GFiles<CR>
+nmap <Leader>F :Files<CR>
+nmap <Leader>b :Buffers<CR>
+nmap <Leader>h :History<CR>
+nmap <Leader>t :BTags<CR>
+nmap <Leader>T :Tags<CR>
+nmap <Leader>l :BLines<CR>
+nmap <Leader>L :Lines<CR>
+nmap <Leader>' :Marks<CR>
+nmap <Leader>a :Ag<Space>
+nmap <Leader>H :Helptags!<CR>
+nmap <Leader>C :Commands<CR>
+nmap <Leader>: :History:<CR>
+nmap <Leader>/ :History/<CR>
+nmap <Leader>M :Maps<CR>
+nmap <Leader>s :Filetypes<CR>
 
-" auto-complete engine
+" auto-complete engine and prettier (uses VSCode modules !)
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -98,11 +102,12 @@ function! s:show_documentation()
 endfunction
 
 " Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
-
+" Prettier config
+command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 
 
 " End of plugin configuration
@@ -112,7 +117,7 @@ call plug#end()
 " Color scheme
 set termguicolors
 set background=dark
-colorscheme onedark
+colorscheme palenight
 highlight Normal guibg=None
 highlight NonText guibg=None
 nnoremap <C-l> :nohlsearch<cr>
