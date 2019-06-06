@@ -51,7 +51,7 @@ nmap <Leader>T :Tags<CR>
 nmap <Leader>l :BLines<CR>
 nmap <Leader>L :Lines<CR>
 nmap <Leader>' :Marks<CR>
-nmap <Leader>a :Ag<Space>
+nmap <Leader>a :Rg<Space>
 nmap <Leader>H :Helptags!<CR>
 nmap <Leader>C :Commands<CR>
 nmap <Leader>: :History:<CR>
@@ -117,7 +117,7 @@ call plug#end()
 " Color scheme
 set termguicolors
 set background=dark
-colorscheme palenight
+colorscheme nord
 highlight Normal guibg=None
 highlight NonText guibg=None
 nnoremap <C-l> :nohlsearch<cr>
