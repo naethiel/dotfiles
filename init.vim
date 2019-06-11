@@ -59,6 +59,7 @@ nmap <Leader>/ :History/<CR>
 nmap <Leader>M :Maps<CR>
 nmap <Leader>s :Filetypes<CR>
 
+
 " auto-complete engine and prettier (uses VSCode modules !)
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
 " Use tab for trigger completion with characters ahead and navigate.
@@ -141,7 +142,7 @@ nnoremap <F9> :set cursorline! cursorcolumn!<cr>
 nnoremap <F10> :set wrap! <cr>
 
 " If there is a .vimrc file in the local directory when opening, load it too.
-" if filereadable(".vimrc")
-"     so .vimrc
-" endif
+ if filereadable(".vimrc")
+     so .vimrc
+ endif
 
