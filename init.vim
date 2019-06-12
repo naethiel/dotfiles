@@ -18,26 +18,15 @@ let NERDTreeIgnore = ['\.pyc$']
 Plug 'joshdick/onedark.vim'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'arcticicestudio/nord-vim'
-" Language highlighting & stuff
-" Plug 'sheerun/vim-polyglot'
 
 " Javascript support
 Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
 let g:jsx_ext_required = 0
 
-" Less, Scss and stuff
-Plug 'lunaru/vim-less'
-Plug 'cakebaker/scss-syntax.vim'
-
-" Auto closing brackets because sanity
-Plug 'jiangmiao/auto-pairs'
-
 " Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-let g:airline_theme = 'nord'
-let g:airline_powerline_fonts = 1
 
 " Fuzzy universal finder
 Plug 'junegunn/fzf' 
@@ -116,21 +105,36 @@ call plug#end()
 
 
 " Color scheme
-set termguicolors
+"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
+"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+if (empty($TMUX))
+  if (has("nvim"))
+    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
+" syntax on
 set background=dark
-colorscheme nord
+colorscheme palenight
+let g:airline_theme = 'onedark'
+let g:airline_powerline_fonts = 1
 highlight Normal guibg=None
 highlight NonText guibg=None
 nnoremap <C-l> :nohlsearch<cr>
 
 " Comfort
 set cursorline                     " highlight the cursor line
-" set cursorcolumn                   " highlight the cursor column
 set number                         " line numbers
 set ruler                          " always show cursor
-set scrolloff=3                    " start scrolling three lines before horizontal border of window
-set sidescrolloff=3                " start scrolling three columns before vertical border of window
-" set list lcs=trail:.,tab:»\ ,eol:¶ " display whitespace chars
+set scrolloff=5                    " start scrolling three lines before horizontal border of window
+set sidescrolloff=5                " start scrolling three columns before vertical border of window
 set hidden                         " only hide buffers when switch to a new file, so the undo history is still here
 
 " Speed a little bit of things
