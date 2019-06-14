@@ -1,6 +1,3 @@
-
-" Sanity settings.
-set backspace=indent,eol,start
 set tabstop=2
 set shiftwidth=2
 set expandtab
@@ -12,17 +9,21 @@ call plug#begin()
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
 nnoremap <C-b> :NERDTreeTabsToggle<cr>
-let NERDTreeIgnore = ['\.pyc$']
 
 " Themes
 Plug 'joshdick/onedark.vim'
-Plug 'drewtempelmeyer/palenight.vim'
-Plug 'arcticicestudio/nord-vim'
 
 " Javascript support
 Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
 let g:jsx_ext_required = 0
+let g:javascript_plugin_jsdoc = 1
+
+" Surrounding selectin
+Plug 'tpope/vim-surround'
+
+" Comment lines easily
+Plug 'tpope/vim-commentary'
 
 " Airline
 Plug 'vim-airline/vim-airline'
@@ -31,22 +32,16 @@ Plug 'vim-airline/vim-airline-themes'
 " Fuzzy universal finder
 Plug 'junegunn/fzf' 
 Plug 'junegunn/fzf.vim'
-nmap <C-p> :GFiles<CR>
+nmap <C-f> :GFiles<CR>
 nmap <Leader>F :Files<CR>
-nmap <Leader>b :Buffers<CR>
 nmap <Leader>h :History<CR>
-nmap <Leader>t :BTags<CR>
-nmap <Leader>T :Tags<CR>
 nmap <Leader>l :BLines<CR>
-nmap <Leader>L :Lines<CR>
-nmap <Leader>' :Marks<CR>
 nmap <Leader>a :Rg<Space>
 nmap <Leader>H :Helptags!<CR>
 nmap <Leader>C :Commands<CR>
 nmap <Leader>: :History:<CR>
 nmap <Leader>/ :History/<CR>
 nmap <Leader>M :Maps<CR>
-nmap <Leader>s :Filetypes<CR>
 
 
 " auto-complete engine and prettier (uses VSCode modules !)
@@ -120,9 +115,7 @@ if (empty($TMUX))
     set termguicolors
   endif
 endif
-" syntax on
-set background=dark
-colorscheme palenight
+colorscheme onedark
 let g:airline_theme = 'onedark'
 let g:airline_powerline_fonts = 1
 highlight Normal guibg=None
@@ -140,10 +133,6 @@ set hidden                         " only hide buffers when switch to a new file
 " Speed a little bit of things
 set lazyredraw                     " vim can become awfully slow at times when redrawing screens with cursor lines or columns
 set ttyfast
-
-nnoremap <F8> :set  number! list!<cr>
-nnoremap <F9> :set cursorline! cursorcolumn!<cr>
-nnoremap <F10> :set wrap! <cr>
 
 " If there is a .vimrc file in the local directory when opening, load it too.
  if filereadable(".vimrc")
