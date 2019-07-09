@@ -8,10 +8,26 @@ call plug#begin()
 " Nerdtree and git extension
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
+" nerdtree with git :o 
+Plug 'Xuyuanp/nerdtree-git-plugin' 
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
 nnoremap <C-b> :NERDTreeTabsToggle<cr>
 
 " Themes
-Plug 'joshdick/onedark.vim'
+Plug 'rakr/vim-one'
+Plug 'morhetz/gruvbox'
+let g:gruvbox_contrast_dark = 'medium'
 
 " Javascript support
 Plug 'pangloss/vim-javascript'
@@ -19,21 +35,28 @@ Plug 'maxmellon/vim-jsx-pretty'
 let g:jsx_ext_required = 0
 let g:javascript_plugin_jsdoc = 1
 
-" Surrounding selectin
+" Surrounding selection
 Plug 'tpope/vim-surround'
 
 " Comment lines easily
 Plug 'tpope/vim-commentary'
 
+" Easy motion
+Plug 'easymotion/vim-easymotion/'
+
 " Airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
+" Git gutter
+Plug 'airblade/vim-gitgutter'
 
 " Fuzzy universal finder
 Plug 'junegunn/fzf' 
 Plug 'junegunn/fzf.vim'
 nmap <C-f> :GFiles<CR>
 nmap <Leader>F :Files<CR>
+nmap <Leader>b :Buffers<CR>
 nmap <Leader>h :History<CR>
 nmap <Leader>l :BLines<CR>
 nmap <Leader>a :Rg<Space>
@@ -74,7 +97,6 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
@@ -115,11 +137,13 @@ if (empty($TMUX))
     set termguicolors
   endif
 endif
-colorscheme onedark
-let g:airline_theme = 'onedark'
+" colorscheme one
+colorscheme one
+set background=dark
+let g:airline_theme = 'one'
 let g:airline_powerline_fonts = 1
-highlight Normal guibg=None
-highlight NonText guibg=None
+" highlight Normal guibg=None
+" highlight NonText guibg=None
 nnoremap <C-l> :nohlsearch<cr>
 
 " Comfort
