@@ -152,7 +152,6 @@ set number                         " line numbers
 set ruler                          " always show cursor
 set scrolloff=5                    " start scrolling three lines before horizontal border of window
 set sidescrolloff=5                " start scrolling three columns before vertical border of window
-set hidden                         " only hide buffers when switch to a new file, so the undo history is still here
 
 " Speed a little bit of things
 set lazyredraw                     " vim can become awfully slow at times when redrawing screens with cursor lines or columns
