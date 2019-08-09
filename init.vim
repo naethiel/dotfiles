@@ -27,6 +27,7 @@ nnoremap <C-b> :NERDTreeTabsToggle<cr>
 " Themes
 Plug 'rakr/vim-one'
 Plug 'morhetz/gruvbox'
+Plug 'drewtempelmeyer/palenight.vim'
 let g:gruvbox_contrast_dark = 'medium'
 
 " Javascript support
@@ -137,10 +138,10 @@ if (empty($TMUX))
     set termguicolors
   endif
 endif
-" colorscheme one
-colorscheme one
+
+colorscheme palenight
 set background=dark
-let g:airline_theme = 'one'
+let g:airline_theme = 'bubblegum'
 let g:airline_powerline_fonts = 1
 " highlight Normal guibg=None
 " highlight NonText guibg=None
