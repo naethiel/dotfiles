@@ -6,10 +6,10 @@ let mapleader=","
 call plug#begin()
 
 " Nerdtree and git extension
-Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
+" Plug 'scrooloose/nerdtree'
+" Plug 'jistr/vim-nerdtree-tabs'
 " nerdtree with git :o 
-Plug 'Xuyuanp/nerdtree-git-plugin' 
+" Plug 'Xuyuanp/nerdtree-git-plugin' 
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "✹",
     \ "Staged"    : "✚",
@@ -51,6 +51,10 @@ Plug 'vim-airline/vim-airline-themes'
 
 " Git gutter
 Plug 'airblade/vim-gitgutter'
+
+" Directory tree display
+Plug 'justinmk/vim-dirvish'
+Plug 'kristijanhusak/vim-dirvish-git'
 
 " Fuzzy universal finder
 Plug 'junegunn/fzf' 
