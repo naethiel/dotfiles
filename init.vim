@@ -28,7 +28,9 @@ nnoremap <C-b> :NERDTreeTabsToggle<cr>
 Plug 'rakr/vim-one'
 Plug 'morhetz/gruvbox'
 Plug 'drewtempelmeyer/palenight.vim'
+Plug 'kaicataldo/material.vim'
 let g:gruvbox_contrast_dark = 'medium'
+let g:material_theme_style = 'darker'
 
 " Javascript support
 Plug 'pangloss/vim-javascript'
@@ -143,12 +145,12 @@ if (empty($TMUX))
   endif
 endif
 
-colorscheme palenight
+colorscheme one
 set background=dark
 let g:airline_theme = 'bubblegum'
 let g:airline_powerline_fonts = 1
-" highlight Normal guibg=None
-" highlight NonText guibg=None
+highlight Normal guibg=None
+highlight NonText guibg=None
 nnoremap <C-l> :nohlsearch<cr>
 
 " Comfort
@@ -157,6 +159,8 @@ set number                         " line numbers
 set ruler                          " always show cursor
 set scrolloff=5                    " start scrolling three lines before horizontal border of window
 set sidescrolloff=5                " start scrolling three columns before vertical border of window
+set lazyredraw
+set ttyfast
 
 " Speed a little bit of things
 set lazyredraw                     " vim can become awfully slow at times when redrawing screens with cursor lines or columns
