@@ -1,6 +1,6 @@
 [core]
     excludesfile = /Users/nicolasmissika/.gitignore_global
-	editor = nano
+	editor = nvim
 [user]
     name = Nicolas Missika
     email = nmissika@synthesio.com
@@ -12,7 +12,6 @@
 	fap = fetch --all -p
 	rud = rebase upstream/devel
 	st = status
-	co = checkout
 	cm = commit -m
 	l = log -20 --pretty=format:'%C(magenta)%h%Creset - %<(24)%C(cyan)%an%Creset %C(dim red)%ar%Creset : %s' --no-merges
 	lc = log -20 --pretty=format:'%C(magenta)%h%Creset - %<(24)%C(cyan)%an%Creset %C(dim red)%ar%Creset : %s'

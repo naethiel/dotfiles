@@ -6,10 +6,10 @@ let mapleader=","
 call plug#begin()
 
 " Nerdtree and git extension
-" Plug 'scrooloose/nerdtree'
-" Plug 'jistr/vim-nerdtree-tabs'
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
 " nerdtree with git :o 
-" Plug 'Xuyuanp/nerdtree-git-plugin' 
+Plug 'Xuyuanp/nerdtree-git-plugin' 
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "✹",
     \ "Staged"    : "✚",
@@ -25,12 +25,8 @@ let g:NERDTreeIndicatorMapCustom = {
 nnoremap <C-b> :NERDTreeTabsToggle<cr>
 
 " Themes
-Plug 'rakr/vim-one'
-Plug 'morhetz/gruvbox'
+" Plug 'rakr/vim-one'
 Plug 'drewtempelmeyer/palenight.vim'
-Plug 'kaicataldo/material.vim'
-let g:gruvbox_contrast_dark = 'medium'
-let g:material_theme_style = 'darker'
 
 " Javascript support
 Plug 'pangloss/vim-javascript'
@@ -54,14 +50,10 @@ Plug 'vim-airline/vim-airline-themes'
 " Git gutter
 Plug 'airblade/vim-gitgutter'
 
-" Directory tree display
-Plug 'justinmk/vim-dirvish'
-Plug 'kristijanhusak/vim-dirvish-git'
-
 " Fuzzy universal finder
 Plug 'junegunn/fzf' 
 Plug 'junegunn/fzf.vim'
-nmap <C-f> :GFiles<CR>
+nmap <Leader>f :GFiles<CR>
 nmap <Leader>F :Files<CR>
 nmap <Leader>b :Buffers<CR>
 nmap <Leader>h :History<CR>
@@ -72,7 +64,6 @@ nmap <Leader>C :Commands<CR>
 nmap <Leader>: :History:<CR>
 nmap <Leader>/ :History/<CR>
 nmap <Leader>M :Maps<CR>
-
 
 " auto-complete engine and prettier (uses VSCode modules !)
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
@@ -129,9 +120,9 @@ call plug#end()
 
 
 " Color scheme
-"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
-"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
-"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+" Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+" If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
+" (see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
 if (empty($TMUX))
   if (has("nvim"))
     "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
@@ -145,26 +136,32 @@ if (empty($TMUX))
   endif
 endif
 
-colorscheme one
+colorscheme palenight
 set background=dark
 let g:airline_theme = 'bubblegum'
 let g:airline_powerline_fonts = 1
 highlight Normal guibg=None
 highlight NonText guibg=None
-nnoremap <C-l> :nohlsearch<cr>
 
 " Comfort
 set cursorline                     " highlight the cursor line
 set number                         " line numbers
 set ruler                          " always show cursor
-set scrolloff=5                    " start scrolling three lines before horizontal border of window
-set sidescrolloff=5                " start scrolling three columns before vertical border of window
-set lazyredraw
-set ttyfast
-
+" set scrolloff=5                    " start scrolling three lines before horizontal border of window
+" set sidescrolloff=5                " start scrolling three columns before vertical border of window
 " Speed a little bit of things
 set lazyredraw                     " vim can become awfully slow at times when redrawing screens with cursor lines or columns
-set ttyfast
+
+nnoremap <silent>g<Right> <C-w>l
+nnoremap <silent>g<Left> <C-w>h
+nnoremap <silent>g<Up> <C-w>k
+nnoremap <silent>g<Down> <C-w>j
+nnoremap <silent>gl <C-w>l
+nnoremap <silent>gh <C-w>h
+nnoremap <silent>gk <C-w>k
+nnoremap <silent>gj <C-w>j
+
+nnoremap <C-l> :nohlsearch<cr>
 
 " If there is a .vimrc file in the local directory when opening, load it too.
  if filereadable(".vimrc")
