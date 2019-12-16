@@ -24,9 +24,22 @@ let g:NERDTreeIndicatorMapCustom = {
     \ }
 nnoremap <C-b> :NERDTreeTabsToggle<cr>
 
-" Themes
-" Plug 'rakr/vim-one'
+" Themes cornucopia
+Plug 'rakr/vim-one'
 Plug 'drewtempelmeyer/palenight.vim'
+Plug 'levelone/tequila-sunrise.vim'
+Plug 'danilo-augusto/vim-afterglow'
+Plug 'tyrannicaltoucan/vim-deep-space'
+Plug 'nanotech/jellybeans.vim'
+Plug 'altercation/vim-colors-solarized'
+Plug 'shawncplus/skittles_berry'
+Plug 'dsolstad/vim-wombat256i'
+Plug 'sjl/badwolf'
+Plug 'relastle/bluewery.vim'
+Plug 'mhartington/oceanic-next'
+Plug 'ayu-theme/ayu-vim'
+Plug 'arcticicestudio/nord-vim'
+let ayucolor="mirage" " for mirage version of theme
 
 " Javascript support
 Plug 'pangloss/vim-javascript'
@@ -136,7 +149,7 @@ if (empty($TMUX))
   endif
 endif
 
-colorscheme palenight
+colorscheme afterglow
 set background=dark
 let g:airline_theme = 'bubblegum'
 let g:airline_powerline_fonts = 1
