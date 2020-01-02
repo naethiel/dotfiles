@@ -178,7 +178,6 @@ set mouse=a
 " Auto save changes before switching buffer
 set autowrite
 
-
 " Always show sign column for git icons
 set signcolumn=yes
 
@@ -204,7 +203,6 @@ set number
 set suffixesadd+=.css,index.css,.js,.jsx,.scss
 set path+=.,src
 
-
 " Start scrolling before cursor gets to the edge
 set scrolloff=3
 set sidescrolloff=15
@@ -214,7 +212,7 @@ set sidescroll=1
 " -----------------------------------------
 
 " Clear search (highlight)
-nnoremap <C-l>:noh<cr>
+nnoremap <C-l> :nohlsearch<cr>
 
 " Plugin config
 " -----------------------------------------
