@@ -67,6 +67,9 @@ Plug 'tpope/vim-commentary'
 " Move blocks of code with ALT+j/k
 Plug 'matze/vim-move'
 
+" Auto parenthesis/brackets pairs
+Plug 'jiangmiao/auto-pairs'
+
 " Status bar
 " -----------------------------------------
 
