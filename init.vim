@@ -70,6 +70,9 @@ Plug 'matze/vim-move'
 " Auto parenthesis/brackets pairs
 Plug 'jiangmiao/auto-pairs'
 
+" Multiple select like in Sublime
+Plug 'terryma/vim-multiple-cursors'
+
 " Status bar
 " -----------------------------------------
 
@@ -211,11 +214,27 @@ set scrolloff=3
 set sidescrolloff=15
 set sidescroll=1
 
+" Visual feedback while search/replacing
+set inccommand=nosplit
+
 " Key mapping
 " -----------------------------------------
 
 " Clear search (highlight)
-nnoremap <C-l> :nohlsearch<cr>
+nnoremap <C-l> :nohlsearch<CR>
+
+" Go fuck yourself Ex mode.
+map Q <Nop>
+
+" switching between panes
+nnoremap <silent>g<Right> <C-w>l
+nnoremap <silent>g<Left> <C-w>h
+nnoremap <silent>g<Up> <C-w>k
+nnoremap <silent>g<Down> <C-w>j
+nnoremap <silent>gl <C-w>l
+nnoremap <silent>gh <C-w>h
+nnoremap <silent>gk <C-w>k
+nnoremap <silent>gj <C-w>j
 
 " Plugin config
 " -----------------------------------------
@@ -266,7 +285,11 @@ endif
 
 " Nerdtree and git extension
 if s:has_plugin("nerdtree") 
-  nnoremap <C-b> :NERDTreeTabsToggle<cr>
+  nnoremap <C-b> :NERDTreeTabsToggle<CR>
+  nnoremap <silent> <Leader>v :NERDTreeTabsToggle<CR>
+
+  let NERDTreeMinimalUI = 1
+  let NERDTreeDirArrows = 1
 endif
 
 if s:has_plugin('nerdtree-git-plugin')
