@@ -1,7 +1,13 @@
 " Vim plugins
 " -----------------------------------------
 
-let g:plugin_path = '~/.config/nvim/plugged'
+" auto install vim-plug
+" source: https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
 call plug#begin()
 
@@ -22,6 +28,7 @@ Plug 'relastle/bluewery.vim'
 Plug 'mhartington/oceanic-next'
 Plug 'ayu-theme/ayu-vim'
 Plug 'arcticicestudio/nord-vim'
+Plug 'fatih/molokai'
 let ayucolor="mirage" " AYU subtheme
 
 " Tmux
@@ -107,7 +114,7 @@ endfunction
 " -----------------------------------------
 
 " Theme
-colorscheme one
+colorscheme nord
 set background=dark
 highlight Normal guibg=None
 highlight NonText guibg=None
@@ -236,12 +243,15 @@ nnoremap <silent>gh <C-w>h
 nnoremap <silent>gk <C-w>k
 nnoremap <silent>gj <C-w>j
 
+" searches to middle of the screen
+nnoremap n nzz
+nnoremap N Nzz
+
 " Plugin config
 " -----------------------------------------
 
 " CoC config
 if s:has_plugin('coc.nvim')
-  call coc#add_extension('coc-json', 'coc-tsserver', 'coc-css', 'coc-html', 'coc-yaml', 'coc-prettier')
   inoremap <silent><expr> <TAB>
         \ pumvisible() ? "\<C-n>" :
         \ <SID>check_back_space() ? "\<TAB>" :
@@ -293,7 +303,7 @@ if s:has_plugin("nerdtree")
 endif
 
 if s:has_plugin('nerdtree-git-plugin')
-  let g:NERDTreeIndicatorMapCustom = {
+  let g:NERDTreeGitIndicatorMapCustom = {
         \ "Modified"  : "✹",
         \ "Staged"    : "✚",
         \ "Untracked" : "✭",
@@ -351,8 +361,10 @@ if s:has_plugin('fzf')
 endif
 
 if s:has_plugin('vim-airline')
-  let g:airline_theme = 'bubblegum'
+  let g:airline_theme = 'nord'
   let g:airline_powerline_fonts = 1
+  " Automatically displays all buffers when there's only one tab open.
+  let g:airline#extensions#tabline#enabled = 1
 endif
 
 if s:has_plugin('vim-jsx-pretty')
