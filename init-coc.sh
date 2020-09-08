@@ -14,5 +14,5 @@ then
 fi
 
 # Change extension names to the extensions you need
-npm install coc-tsserver coc-json coc-css coc-html coc-yaml --global-style
+npm install coc-tsserver coc-json coc-css coc-html coc-yaml coc-eslint --global-style
 --ignore-scripts --no-bin-links --no-package-lock --only=prod --registry="https://registry.npmjs.org"
