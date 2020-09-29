@@ -288,7 +288,7 @@ endif
 " Nerdtree and git extension
 if s:has_plugin("nerdtree") 
   nnoremap <C-b> :NERDTreeTabsToggle<CR>
-  nnoremap <silent> <Leader>v :NERDTreeTabsToggle<CR>
+  nnoremap <silent> <Leader>v :NERDTreeFind<CR>
 
   let NERDTreeMinimalUI = 1
   let NERDTreeDirArrows = 1
@@ -311,6 +311,7 @@ endif
 
 " Seamless tmux/terminal integration
 if s:has_plugin('vim-tmux-navigator')
+  let g:tmux_navigator_no_mappings = 1
   nnoremap <silent> <C-Left>  :TmuxNavigateLeft<CR>
   nnoremap <silent> <C-Down>  :TmuxNavigateDown<CR>
   nnoremap <silent> <C-Up>    :TmuxNavigateUp<CR>
