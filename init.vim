@@ -85,13 +85,38 @@ Plug 'vim-airline/vim-airline-themes'
 " Have git edits line-by-line in along line numbers
 Plug 'airblade/vim-gitgutter'
 
+
+" support editorconfig
+" -----------------------------------------
+Plug 'editorconfig/editorconfig-vim'
+
+
 " Javascript
 " -----------------------------------------
 
 " Specific language support
 Plug 'pangloss/vim-javascript', {'for': ['javascript', 'javascript.jsx']}
 " Autocomplete and linting
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+" Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+" ALE config start
+let g:ale_fixers = {
+\  'javascript': ['eslint'],
+\  'typescript': ['eslint']
+\}
+let g:ale_linters = {
+\  'javascript': ['eslint', 'tsserver'],
+\  'typescript': ['eslint', 'tsserver']
+\}
+let g:ale_fix_on_save = 1
+let g:ale_lint_on_insert_leave = 1
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_sign_column_always = 1
+let g:ale_completion_autoimport = 1
+let g:ale_completion_enabled = 1
+Plug 'dense-analysis/ale'
+
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 
 " End of plugin configuration
 call plug#end()
@@ -106,7 +131,7 @@ endfunction
 " -----------------------------------------
 
 " Theme
-colorscheme nord
+colorscheme molokai
 set background=dark
 highlight Normal guibg=None
 highlight NonText guibg=None
@@ -241,6 +266,12 @@ nnoremap N Nzz
 
 " Plugin config
 " -----------------------------------------
+
+" ALE 
+nnoremap <silent> gd :ALEGoToDefinition<CR>
+nnoremap <silent> gr :ALEFindReferences<CR>
+nnoremap <silent> <F2> :ALERename<CR>
+nnoremap <silent> K :ALEHover<CR>
 
 " CoC config
 if s:has_plugin('coc.nvim')
