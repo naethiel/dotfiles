@@ -1,4 +1,0 @@
-{
-  "prettier.eslintIntegration": true,
-  "coc.preferences.formatOnSaveFiletypes": ["javascript", "typescript", "css", "less", "scss", "json", "graphql", "markdown", "vue", "yaml", "html"]
-}
