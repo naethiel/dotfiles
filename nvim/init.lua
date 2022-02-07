@@ -104,7 +104,7 @@ vim.api.nvim_set_keymap('', 'Q', '<Nop>', { noremap = true, silent = true })
 vim.o.termguicolors = true
 
 -- Load the colorscheme
-require('nightfox').load('nightfox')
+require('monokai').setup { palette = require('monokai').pro }
 
 
 --Remap space as leader key
@@ -437,7 +437,7 @@ vim.api.nvim_set_keymap('n', '<leader>v', ':NvimTreeFindFile<CR>', { noremap = t
 
 -- Statusline setup
 require('lualine').setup ({
-  options = {theme = 'nightfox'},
+  options = {theme = 'auto'},
   sections = {
     lualine_a = {'mode'},
     lualine_b = {'branch'},
@@ -456,8 +456,11 @@ require('lualine').setup ({
 
 -- Neoformat
 -- by default all formatters are enabled
-
-vim.g.neoformat_run_all_formatters = 1
+vim.g.neoformat_enabled_typescriptreact = {'tsfmt', 'prettier', 'eslint_d'}
+vim.g.neoformat_enabled_typescript = {'tsfmt', 'prettier', 'eslint_d'}
+vim.g.neoformat_enabled_javascriptreact = {'tsfmt', 'prettier', 'eslint_d'}
+vim.g.neoformat_enabled_javascript = {'tsfmt', 'prettier', 'eslint_d'}
+vim.g.neoformat_enabled_go = {'gofmt', 'goimports'}
 
 -- run format on save
 vim.api.nvim_exec(
