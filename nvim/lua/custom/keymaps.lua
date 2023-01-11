@@ -13,14 +13,10 @@ vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
-vim.keymap.set('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-j>', '<C-w>j', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-k>', '<C-w>k', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-l>', '<C-w>l', { noremap = true, silent = true })
-
+-- navigating windows
 vim.keymap.set('n', '<C-Left>', '<C-w>h', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-Up>', '<C-w>j', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-Down>', '<C-w>k', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-Up>', '<C-w>k', { noremap = true, silent = true })
+vim.keymap.set('n', '<C-Down>', '<C-w>j', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-Right>', '<C-w>l', { noremap = true, silent = true })
 
 -- [[ Highlight on yank ]]
@@ -39,3 +35,7 @@ vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
+
+-- searches in the center of the screen
+vim.keymap.set('n', 'n', 'nzz')
+vim.keymap.set('n', 'N', 'Nzz')

@@ -16,15 +16,19 @@ require("formatter").setup {
      },
     typescript = {
       require("formatter.filetypes.typescript").prettier,
+      require("formatter.filetypes.typescript").eslint_d,
     },
     typescriptreact = {
       require("formatter.filetypes.typescript").prettier,
+      require("formatter.filetypes.typescript").eslint_d,
     },
     javascript = {
       require("formatter.filetypes.typescript").prettier,
+      require("formatter.filetypes.typescript").eslint_d,
     },
     javascriptreact = {
       require("formatter.filetypes.typescript").prettier,
+      require("formatter.filetypes.typescript").eslint_d,
     },
     css = {
       require("formatter.defaults.prettier"),
