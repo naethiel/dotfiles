@@ -1,9 +1,10 @@
 [core]
-    excludesfile = /Users/nicolasmissika/.gitignore_global
-	editor = nvim
+	excludesfile = /Users/naethiel/.gitignore_global
+	editor = vim
+	pager = delta
 [user]
-    name = Nicolas Missika
-    email = nmissika@synthesio.com
+	name = Nicolas Missika
+	email = nmissika@synthesio.com
 [alias]
 	tree = log --oneline --graph --pretty=format:'%C(red)%h %Creset%s %C(blue)%an %C(green)%ci %C(yellow)%d %Creset'
 	alias = aliases config --get-regexp alias
@@ -16,3 +17,14 @@
 	l = log -20 --pretty=format:'%C(magenta)%h%Creset - %<(24)%C(cyan)%an%Creset %C(dim red)%ar%Creset : %s' --no-merges
 	lc = log -20 --pretty=format:'%C(magenta)%h%Creset - %<(24)%C(cyan)%an%Creset %C(dim red)%ar%Creset : %s'
 	lb = branch -a
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true
+    side-by-side = true
+    line-numbers = true
+
+[diff]
+    colorMoved = default
