@@ -8,7 +8,11 @@
 - [fzf](https://github.com/junegunn/fzf)
 - [kitty](https://sw.kovidgoyal.net/kitty/)
 - node (via fish/nvm)
+  ```
+  npm i -g eslint_d prettier
+  ```
 - [delta](https://github.com/dandavison/delta)
+- [lunarvim](https://www.lunarvim.org/)
 
 ## Optional
 
