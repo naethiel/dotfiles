@@ -5,6 +5,9 @@ cursorline = true
 bufferline = "multiple"
 color-modes = true
 
+[editor.statusline]
+right = ["diagnostics", "selections", "position", "total-line-numbers", "file-type"]
+
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
@@ -17,3 +20,5 @@ hidden = false
 render = true
 character = "┊"
 
+[keys.normal]
+space = { L = [":sh eslint_d --fix $(git diff --name-only)", ":reload-all"] } # Run ESLint FixAll

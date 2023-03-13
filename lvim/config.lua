@@ -11,9 +11,9 @@ an executable
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save.enabled = true
-lvim.colorscheme = "lunar"
+lvim.colorscheme = "catppuccin"
 -- to disable icons and use a minimalist setup, uncomment the following
-lvim.use_icons = false
+lvim.use_icons = true
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
@@ -118,4 +118,5 @@ ca.setup {
 lvim.plugins = {
   -- improved typescript support with file renaming etc
   { "jose-elias-alvarez/typescript.nvim" },
+  { "catppuccin/nvim",                   as = "catppuccin" }
 }
