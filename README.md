@@ -7,21 +7,19 @@
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [fzf](https://github.com/junegunn/fzf)
 - [kitty](https://sw.kovidgoyal.net/kitty/) or [iTerm2](https://iterm2.com/index.html)
-- node (via fish/nvm)
+- [volta](https://volta.sh/) for node version management
+- node, through `volta`
   ```
-  npm i -g eslint_d prettier chokidar
+  volta install eslint_d@latest prettier@latest yarn@latest
   ```
-  (chokidar is required to run eslint and/or prettier in watch mode in CLI, along with helix)
+  (chokidar is required to run eslint and/or prettier in watch mode in CLI, which is useful with helix)
+- go
 - [delta](https://github.com/dandavison/delta)
 - [lazyGit](https://github.com/jesseduffield/lazygit)
 - [lunarvim](https://www.lunarvim.org/)
 
-## Optional
-
-- go
-
 ## Steps
 
 - Copy/symlink dotfiles to ~
-- Install required software
-- Apply iTerm2 theme
+- Install required software through whatever package manager is relevant
+- Apply iTerm2 theme if on macOS
