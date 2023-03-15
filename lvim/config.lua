@@ -42,6 +42,16 @@ lvim.builtin.treesitter.ensure_installed = {
 
 lvim.builtin.treesitter.highlight.enable = true
 
+lvim.builtin.treesitter.incremental_selection = {
+  enable = true,
+  keymaps = {
+    init_selection = '<c-space>',
+    node_incremental = '<c-space>',
+    scope_incremental = '<c-s>',
+    node_decremental = '<c-backspace>',
+  },
+}
+
 -- generic LSP settings
 
 -- -- make sure server will always be installed even if the server is in skipped_servers list
