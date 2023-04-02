@@ -9,13 +9,6 @@ if status is-interactive
   abbr -a "ll" "ls -la"
 end
 
-set -gx VOLTA_HOME "$HOME/.volta"
-set -gx PATH "$VOLTA_HOME/bin" $PATH
-
 set -gx PATH "$HOME/.local/bin" $PATH
 set -gx PATH "$HOME/go/bin" $PATH
 
-set -g hydro_symbol_prompt "❯"
-set -g hydro_color_pwd "brgreen"
-set -g hydro_color_prompt "brgreen"
-set -g hydro_color_git "brblack"
