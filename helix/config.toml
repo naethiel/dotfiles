@@ -24,3 +24,11 @@ character = "┊"
 
 [keys.normal]
 space = { L = [":sh eslint_d --fix $(git diff --name-only)", ":reload-all"] } # Run ESLint FixAll
+S-left = ":buffer-previous"
+S-right = ":buffer-next"
+C-q = ":buffer-close"
+C-right = "jump_view_right"
+C-left = "jump_view_left"
+C-up = "jump_view_up"
+C-down = "jump_view_down"
+
