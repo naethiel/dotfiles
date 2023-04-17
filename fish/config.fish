@@ -12,3 +12,6 @@ end
 set -gx PATH "$HOME/.local/bin" $PATH
 set -gx PATH "$HOME/go/bin" $PATH
 
+if type -q zoxide
+  zoxide init fish | source
+end
