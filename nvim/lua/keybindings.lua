@@ -1,10 +1,10 @@
 -- Keymaps for better default experience
--- See `:help vim.keymap.set()`
-vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
+-- See `:help im.keymap.set()`
+vim.api.nvim_set_keymap('n', '<Space>', '<Nop>', { silent = true })
 
 -- Remap for dealing with word wrap
-vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
-vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+vim.api.nvim_set_keymap('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.api.nvim_set_keymap('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 
 -- [[ Highlight on yank ]]
 -- See `:help vim.highlight.on_yank()`
@@ -18,12 +18,16 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- center searches on screen
-vim.keymap.set('n', 'n', 'nzz', { silent = true })
-vim.keymap.set('n', 'N', 'Nzz', { silent = true })
+vim.api.nvim_set_keymap('n', 'n', 'nzz', { silent = true })
+vim.api.nvim_set_keymap('n', 'N', 'Nzz', { silent = true })
 
 -- navigate through splits and tabs easily
-vim.keymap.set('n', '<C-Left>', '<C-w>h', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-Up>', '<C-w>k', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-Down>', '<C-w>j', { noremap = true, silent = true })
-vim.keymap.set('n', '<C-Right>', '<C-w>l', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-Left>', '<C-w>h', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-Up>', '<C-w>k', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-Down>', '<C-w>j', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-Right>', '<C-w>l', { noremap = true, silent = true })
+
+
+-- Copy to system clipboard - inspired by helix
+vim.api.nvim_set_keymap("n", "<leader>y", '"+y', { noremap = true, silent = true, desc = "Copy to system clipboard" })
 
