@@ -1,3 +1,5 @@
+EnablePrettier = true
+
 return {
   "jose-elias-alvarez/null-ls.nvim",
   dependencies = { 'nvim-lua/plenary.nvim' },
@@ -17,8 +19,10 @@ return {
             group = augroup,
             buffer = bufnr,
             callback = function()
-              -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-              vim.lsp.buf.format({bufnr = bufnr})
+              if EnablePrettier then
+                -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
+                vim.lsp.buf.format({bufnr = bufnr})
+              end
             end,
           })
         end
