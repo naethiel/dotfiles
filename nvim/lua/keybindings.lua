@@ -30,4 +30,5 @@ vim.api.nvim_set_keymap('n', '<C-Right>', '<C-w>l', { noremap = true, silent = t
 
 -- Copy to system clipboard - inspired by helix
 vim.api.nvim_set_keymap("n", "<leader>y", '"+y', { noremap = true, silent = true, desc = "Copy to system clipboard" })
+vim.api.nvim_set_keymap("v", "<leader>y", '"+y', { noremap = true, silent = true, desc = "Copy to system clipboard" })
 

@@ -3,6 +3,7 @@ if status is-interactive
   abbr -a "got" "git"
   abbr -a "gut" "git"
   abbr -a "nuke" "rm -rf"
+  abbr -a "n" "nvim ."
   abbr -a "l" "ls -l"
   abbr -a "ll" "ls -la"
 end
