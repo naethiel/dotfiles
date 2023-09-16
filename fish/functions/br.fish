@@ -1,1 +1,1 @@
-/Users/naethiel/Library/Application Support/org.dystroy.broot/launcher/fish/br.fish
+/home/naethiel/.local/share/broot/launcher/fish/br.fish

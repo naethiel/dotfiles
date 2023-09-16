@@ -3,17 +3,16 @@
 ## Tools
 
 - git
-- [neovim](https://neovim.io/)
+- [helix](helix-editor.com/)
 - [ripgrep](https://github.com/BurntSushi/ripgrep)
 - [kitty](https://sw.kovidgoyal.net/kitty/)
 - [volta](https://volta.sh/) for node version management
 - node, through `volta`
   ```
-  volta install eslint_d@latest prettier@latest yarn@latest
+  volta install eslint_d@latest prettier@latest yarn@latest typescript-language-server typescript
   ```
 - go
 - [delta](https://github.com/dandavison/delta)
-- [lazyGit](https://github.com/jesseduffield/lazygit)
 
 ## Steps
 
