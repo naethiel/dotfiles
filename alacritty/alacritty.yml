@@ -57,4 +57,5 @@ key_bindings:
 
 
 import: 
-  - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
+  - ~/.config/alacritty/rose-pine/rose-pine.yml
+

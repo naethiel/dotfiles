@@ -1,6 +1,6 @@
 [core]
-	excludesfile = /Users/naethiel/.gitignore_global
-	editor = hx
+	excludesfile = /home/naethiel/.gitignore_global
+	editor = vi
 	pager = delta
 [user]
 	name = Nicolas Missika
