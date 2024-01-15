@@ -1,0 +1,80 @@
+import = ["/home/naethiel/.config/alacritty/rose-pine/rose-pine.toml"]
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 10.0
+
+[[keyboard.bindings]]
+chars = "\u00011"
+key = "Key1"
+mods = "Super"
+
+[[keyboard.bindings]]
+chars = "\u00012"
+key = "Key2"
+mods = "Super"
+
+[[keyboard.bindings]]
+chars = "\u00013"
+key = "Key3"
+mods = "Super"
+
+[[keyboard.bindings]]
+chars = "\u00014"
+key = "Key4"
+mods = "Super"
+
+[[keyboard.bindings]]
+chars = "\u00015"
+key = "Key5"
+mods = "Super"
+
+[[keyboard.bindings]]
+chars = "\u00016"
+key = "Key6"
+mods = "Super"
+
+[[keyboard.bindings]]
+chars = "\u00017"
+key = "Key7"
+mods = "Super"
+
+[[keyboard.bindings]]
+chars = "\u00018"
+key = "Key8"
+mods = "Super"
+
+[[keyboard.bindings]]
+chars = "\u00019"
+key = "Key9"
+mods = "Super"
+
+[[keyboard.bindings]]
+chars = "\u00010"
+key = "Key0"
+mods = "Super"
+
+[[keyboard.bindings]]
+chars = "\u0001%"
+key = "D"
+mods = "Super"
+
+[[keyboard.bindings]]
+chars = "\u0001\""
+key = "D"
+mods = "Shift|Super"
+
+[[keyboard.bindings]]
+chars = "\u0001z"
+key = "Return"
+mods = "Shift|Super"
+
+[[keyboard.bindings]]
+chars = "\u0001c"
+key = "T"
+mods = "Super"
+
+[window]
+# decorations = "none"
