@@ -7,74 +7,74 @@ TERM = "xterm-256color"
 size = 10.0
 
 [[keyboard.bindings]]
-chars = "\u00011"
-key = "Key1"
-mods = "Super"
+chars = "\u00021"
+key = "&"
+mods = "Alt"
 
 [[keyboard.bindings]]
-chars = "\u00012"
-key = "Key2"
-mods = "Super"
+chars = "\u00022"
+key = "é"
+mods = "Alt"
 
 [[keyboard.bindings]]
-chars = "\u00013"
-key = "Key3"
-mods = "Super"
+chars = "\u00023"
+key = "\""
+mods = "Alt"
 
 [[keyboard.bindings]]
-chars = "\u00014"
-key = "Key4"
-mods = "Super"
+chars = "\u00024"
+key = "'"
+mods = "Alt"
 
 [[keyboard.bindings]]
-chars = "\u00015"
-key = "Key5"
-mods = "Super"
+chars = "\u00025"
+key = "("
+mods = "Alt"
 
 [[keyboard.bindings]]
-chars = "\u00016"
-key = "Key6"
-mods = "Super"
+chars = "\u00026"
+key = "-"
+mods = "Alt"
 
 [[keyboard.bindings]]
-chars = "\u00017"
-key = "Key7"
-mods = "Super"
+chars = "\u00027"
+key = "è"
+mods = "Alt"
 
 [[keyboard.bindings]]
-chars = "\u00018"
-key = "Key8"
-mods = "Super"
+chars = "\u00028"
+key = "_"
+mods = "Alt"
 
 [[keyboard.bindings]]
-chars = "\u00019"
-key = "Key9"
-mods = "Super"
+chars = "\u00029"
+key = "ç"
+mods = "Alt"
 
 [[keyboard.bindings]]
-chars = "\u00010"
-key = "Key0"
-mods = "Super"
+chars = "\u00020"
+key = "à"
+mods = "Alt"
 
 [[keyboard.bindings]]
-chars = "\u0001%"
+chars = "\u0002%"
 key = "D"
-mods = "Super"
+mods = "ALt"
 
 [[keyboard.bindings]]
-chars = "\u0001\""
+chars = "\u0002\""
 key = "D"
-mods = "Shift|Super"
+mods = "Shift|ALt"
 
 [[keyboard.bindings]]
-chars = "\u0001z"
+chars = "\u0002z"
 key = "Return"
-mods = "Shift|Super"
+mods = "Shift|Alt"
 
 [[keyboard.bindings]]
-chars = "\u0001c"
+chars = "\u0002c"
 key = "T"
-mods = "Super"
+mods = "Alt"
 
 [window]
-# decorations = "none"
+decorations = "none"
