@@ -1,12 +1,15 @@
 if status is-interactive
-  # Commands to run in interactive sessions can go here
-  abbr -a "got" "git"
-  abbr -a "gut" "git"
-  abbr -a "nuke" "rm -rf"
-  abbr -a "n" "nvim ."
-  abbr -a "l" "ls -l"
-  abbr -a "ll" "ls -la"
-  abbr -a "greset" "git reset --soft HEAD^ && git reset -- ."
+    # Commands to run in interactive sessions can go here
+    abbr -a got git
+    abbr -a gut git
+    abbr -a nuke "rm -rf"
+    abbr -a n nvim
+    abbr -a l "ls -l"
+    abbr -a ll "ls -la"
+    abbr -a greset "git reset --soft HEAD^ && git reset -- ."
+    abbr -a .... "../.."
+    abbr -a ...... "../../.."
+    abbr -a ........ "../../../.."
 end
 
 set -gx PATH "$HOME/.local/bin" $PATH
