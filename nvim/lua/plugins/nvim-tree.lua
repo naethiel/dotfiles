@@ -1,5 +1,5 @@
-vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", {silent = true})
-vim.keymap.set("n", "<leader>o", ":NvimTreeFindFile<CR>", {silent = true})
+vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", {silent = true, desc = "Open File Tree" })
+vim.keymap.set("n", "<leader>o", ":NvimTreeFindFile<CR>", {silent = true, desc = "Find File in Tree" })
 
 -- [[Configure File tree]]
 -- disable netrw at the very start of your init.lua (strongly advised)

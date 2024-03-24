@@ -78,6 +78,7 @@ return {
         show_icons = false
       })
       require("mini.statusline").setup()
+      require("mini.completion").setup()
     end
   },
 }

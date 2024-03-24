@@ -8,11 +8,11 @@ return {
         enabled = true,
         auto_refresh = false,
         keymap = {
-          jump_prev = "ù[",
-          jump_next = "ù]",
+          jump_prev = "<leader>cn",
+          jump_next = "<leader>cp",
           accept = "<CR>",
-          refresh = "rr",
-          open = "<M-CR>"
+          refresh = "<leader>cr",
+          open = "<leader>co",
         },
         layout = {
           position = "bottom", -- | top | left | right
@@ -24,12 +24,12 @@ return {
         auto_trigger = true,
         debounce = 75,
         keymap = {
-          accept = "<M-l>",
-          accept_word = false,
+          accept = "<M-CR>",
+          accept_word = "<M-w>",
           accept_line = false,
-          next = "<M-)>",
-          prev = "<M-(>",
-          dismiss = "<C-X>",
+          next = "<M-n>",
+          prev = "<M-p>",
+          dismiss = "<M-X>",
         },
       },
       filetypes = {

@@ -29,7 +29,7 @@ return {
       vim.keymap.set('n', '<leader>f', require('telescope.builtin').find_files, { desc = 'open [F]iles picker' })
       vim.keymap.set('n', '<leader>h', require('telescope.builtin').help_tags, { desc = 'open [H]elp picker' })
       vim.keymap.set('n', '<leader>w', require('telescope.builtin').grep_string, { desc = 'Search current [W]ord' })
-      vim.keymap.set('n', '<leader>g', require('telescope.builtin').live_grep, { desc = '[G]lobal search in workspace' })
+      vim.keymap.set('n', '<leader>/', require('telescope.builtin').live_grep, { desc = 'Global search [/] in workspace' })
       vim.keymap.set('n', '<leader>?', require('telescope.builtin').keymaps, { desc = 'Open keymaps' })
       vim.keymap.set('n', '<leader>d', require("telescope.builtin").diagnostics,{ desc =  'Open [D]iagnostics picker' })
       vim.keymap.set('n', '<leader>s', require('telescope.builtin').lsp_document_symbols, { desc =  'Open [s]ymbols picker' })
