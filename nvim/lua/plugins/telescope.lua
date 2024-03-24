@@ -25,8 +25,9 @@ return {
 
       -- See `:help telescope.builtin`
       vim.keymap.set('n', "<leader>'", require('telescope.builtin').resume, { desc = "['] Open last picker" })
-      vim.keymap.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
-      vim.keymap.set('n', '<leader>f', require('telescope.builtin').find_files, { desc = 'open [F]iles picker' })
+      vim.keymap.set('n', '<leader>b', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
+      vim.keymap.set('n', '<leader>j', require('telescope.builtin').jumplist, { desc = '[ ] Find existing buffers' })
+      vim.keymap.set('n', '<leader>f', require('telescope.builtin').find_files, { desc = 'open [f]iles picker' })
       vim.keymap.set('n', '<leader>h', require('telescope.builtin').help_tags, { desc = 'open [H]elp picker' })
       vim.keymap.set('n', '<leader>w', require('telescope.builtin').grep_string, { desc = 'Search current [W]ord' })
       vim.keymap.set('n', '<leader>/', require('telescope.builtin').live_grep, { desc = 'Global search [/] in workspace' })

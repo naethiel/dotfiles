@@ -27,6 +27,10 @@ vim.api.nvim_set_keymap('n', '<C-Up>', '<C-w>k', { noremap = true, silent = true
 vim.api.nvim_set_keymap('n', '<C-Down>', '<C-w>j', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-Right>', '<C-w>l', { noremap = true, silent = true })
 
+-- go to next and previous buffers
+vim.api.nvim_set_keymap('n', 'gn', ':bnext<CR>', { noremap = true, silent = true, desc = "Go to next buffer" })
+vim.api.nvim_set_keymap('n', 'gp', ':bprevious<CR>', { noremap = true, silent = true, desc = "Go to previous buffer" })
+
 
 -- Copy to system clipboard - inspired by helix
 vim.api.nvim_set_keymap("n", "<leader>y", '"+y', { noremap = true, silent = true, desc = "Copy to system clipboard" })
