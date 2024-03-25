@@ -1,11 +1,14 @@
 return {
   { 'echasnovski/mini.nvim', version = false, 
     config = function() 
+      -- better text objects: `ii`, `ai`, `aI`, `ii`, `aP`, `iP`, `aB`, `iB`, `a{`, `i{`, `a}`, `i}`...
       require("mini.ai").setup()
+      -- auto "surround" with s: sa" to surround with "...
       require("mini.surround").setup()
+      -- toggle comments
       require("mini.comment").setup({
         mappings = {
-          -- Toggle comment (like `gcip` - comment inner paragraph) for both
+          -- Toggle comment for both
           -- Normal and Visual modes
           comment = '<c-c>',
 
@@ -72,16 +75,22 @@ return {
       })
       -- move selection around
       require("mini.move").setup()
+      -- highlight word under cursor
       require("mini.cursorword").setup()
+      -- auto bracket pairs {, [, (, ", ', `
       require("mini.pairs").setup() 
+      -- buffer tabs
       require("mini.tabline").setup({
         show_icons = false
       })
+      -- basic statusline
       require("mini.statusline").setup({
         use_icons = false
       })
+      -- auto-completion
       require("mini.completion").setup()
       -- Use `<Tab>` and `<S-Tab>` to navigate through popup menu items
+      -- see https://github.com/echasnovski/mini.nvim/blob/main/doc/mini-completion.txt#L99
       vim.keymap.set('i', '<Tab>',   [[pumvisible() ? "\<C-n>" : "\<Tab>"]],   { expr = true })
       vim.keymap.set('i', '<S-Tab>', [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], { expr = true })
 

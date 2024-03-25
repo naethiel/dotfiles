@@ -36,3 +36,6 @@ vim.api.nvim_set_keymap('n', 'gp', ':bprevious<CR>', { noremap = true, silent = 
 vim.api.nvim_set_keymap("n", "<leader>y", '"+y', { noremap = true, silent = true, desc = "Copy to system clipboard" })
 vim.api.nvim_set_keymap("v", "<leader>y", '"+y', { noremap = true, silent = true, desc = "Copy to system clipboard" })
 
+-- Clear search highlights on esc
+vim.api.nvim_set_keymap("n", "<Esc>", ":noh<CR>", { noremap = true, silent = true, desc = "Clear search highlights" })
+
