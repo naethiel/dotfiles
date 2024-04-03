@@ -49,6 +49,9 @@ return {
         on_attach = on_attach,
         root_dir = lsp.util.root_pattern('.git', 'src/go.mod', 'go.mod'),
       }
+      lsp["biome"].setup {
+        on_attach = on_attach,
+      }
       lsp["eslint"].setup {
         settings = {
           -- helps eslint find the eslintrc when it's placed in a subfolder instead of the cwd root

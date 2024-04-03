@@ -4,10 +4,10 @@ return {
     require("conform").setup({
       formatters_by_ft = {
         -- Use a sub-list to run only the first available formatter
-        javascript = { { "prettierd", "prettier" } },
-        typescript = { { "prettierd", "prettier" } },
-        typescriptreact = { { "prettierd", "prettier" } },
-        javascriptreact = { { "prettierd", "prettier" } },
+        javascript = { { "biome", "prettierd", "prettier" } },
+        typescript = { { "biome", "prettierd", "prettier" } },
+        typescriptreact = { { "biome", "prettierd", "prettier" } },
+        javascriptreact = { { "biome", "prettierd", "prettier" } },
         css = { { "prettierd", "prettier" } },
         
         go = { "gofmt" }
