@@ -23,6 +23,10 @@ return {
       -- Enable telescope fzf native, if installed
       pcall(require('telescope').load_extension, 'fzf')
 
+      local function fileDiagnostics()
+        return require("telescope.builtin").diagnostics({bufnr = 0})
+      end
+
       -- See `:help telescope.builtin`
       vim.keymap.set('n', "<leader>'", require('telescope.builtin').resume, { desc = "['] Open last picker" })
       vim.keymap.set('n', '<leader>b', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
@@ -32,7 +36,8 @@ return {
       vim.keymap.set('n', '<leader>w', require('telescope.builtin').grep_string, { desc = 'Search current [W]ord' })
       vim.keymap.set('n', '<leader>/', require('telescope.builtin').live_grep, { desc = 'Global search [/] in workspace' })
       vim.keymap.set('n', '<leader>?', require('telescope.builtin').keymaps, { desc = 'Open keymaps' })
-      vim.keymap.set('n', '<leader>d', require("telescope.builtin").diagnostics,{ desc =  'Open [D]iagnostics picker' })
+      vim.keymap.set('n', '<leader>d', require("telescope.builtin").diagnostics,{ desc =  'Open [d]iagnostics picker for file' })
+      vim.keymap.set('n', '<leader>D', fileDiagnostics,{ desc =  'Open [D]iagnostics picker for all opened files' })
       vim.keymap.set('n', '<leader>s', require('telescope.builtin').lsp_document_symbols, { desc =  'Open [s]ymbols picker' })
       vim.keymap.set('n', '<leader>S', require('telescope.builtin').lsp_dynamic_workspace_symbols, { desc =  'Open workspace [S]ymbols picker' })
     end

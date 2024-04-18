@@ -4,12 +4,12 @@ return {
     require("conform").setup({
       formatters_by_ft = {
         -- Use a sub-list to run only the first available formatter
-        javascript = { { "biome", "prettierd", "prettier" } },
-        typescript = { { "biome", "prettierd", "prettier" } },
-        typescriptreact = { { "biome", "prettierd", "prettier" } },
-        javascriptreact = { { "biome", "prettierd", "prettier" } },
+        javascript = { { "biome-check", "prettierd", "prettier" } },
+        typescript = { { "biome-check", "prettierd", "prettier" } },
+        typescriptreact = { { "biome-check", "prettierd", "prettier" } },
+        javascriptreact = { { "biome-check", "prettierd", "prettier" } },
         css = { { "prettierd", "prettier" } },
-        
+        json= { { "biome", "prettierd", "prettier" } },
         go = { "gofmt" }
       },
       format_on_save = {

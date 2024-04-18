@@ -3,10 +3,6 @@ name = "html"
 formatter = { command = 'prettier' }
 
 [[language]]
-name = "json"
-formatter = { command = 'prettier' }
-
-[[language]]
 name = "css"
 formatter = { command = 'prettier' }
 
@@ -16,26 +12,26 @@ biome = { command = "biome", args = ["lsp-proxy"] }
 [[language]]
 name = "javascript"
 language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome" ]
-formatter = { command = "biome", args = ["format", "--stdin-file-path", "a.js"] }
+formatter = { command = "biome", args = ["check", "--apply", "--stdin-file-path", "a.js"] }
 auto-format = true
 
 [[language]]
 name = "typescript"
 language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome" ]
-formatter = { command = "biome", args = ["format", "--stdin-file-path", "a.ts"] }
+formatter = { command = "biome", args = ["check", "--apply", "--stdin-file-path", "a.ts"] }
 auto-format = true
 
 [[language]]
 name = "tsx"
 auto-format = true
 language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome" ]
-formatter = { command = "biome", args = ["format", "--stdin-file-path", "a.tsx"] }
+formatter = { command = "biome", args = ["check", "--apply", "--stdin-file-path", "a.tsx"] }
 
 [[language]]
 name = "jsx"
 auto-format = true
 language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome" ]
-formatter = { command = "biome", args = ["format", "--stdin-file-path", "a.jsx"] }
+formatter = { command = "biome", args = ["check", "--apply", "--stdin-file-path", "a.jsx"] }
 
 [[language]]
 name = "json"
