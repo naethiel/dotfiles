@@ -15,6 +15,9 @@ end
 set -gx PATH "$HOME/.local/bin" $PATH
 set -gx PATH "$HOME/go/bin" $PATH
 set -gx PATH "$HOME/.cargo/bin" $PATH
+set -gx PATH "$HOME/bin" $PATH
+set -gx PATH "$HOME/.config/zide/bin" $PATH
+
 
 zoxide init fish | source
 
