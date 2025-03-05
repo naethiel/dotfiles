@@ -2,6 +2,7 @@
 	excludesfile = /home/naethiel/.gitignore_global
 	editor = hx
 	pager = delta
+	fsMonitor = true
 [user]
 	name = Nicolas Missika
 	email = nicolas.missika@aive.com
@@ -13,18 +14,40 @@
 	st = status
 	cm = commit -m
 	l = log -20 --pretty=format:'%C(magenta)%h%Creset - %<(24)%C(cyan)%an%Creset %C(dim red)%ar%Creset : %s' --no-merges
-	lc = log -20 --pretty=format:'%C(magenta)%h%Creset - %<(24)%C(cyan)%an%Creset %C(dim red)%ar%Creset : %s'
+	lc = log -20 --pretty=format:'%C(magenta)%h%Creset - %<(24)%C(cyan)%an%Creset %C(dim red)%ar%Creset : %s' --graph
 	lb = branch -a
 	uncommit = "reset --soft HEAD^"
 	unstage = "reset -- ."
-
+	co = "checkout"
+	rom = "rebase origin/main"
+[branch]
+	sort = -committerdate
 [interactive]
     diffFilter = delta --color-only
-
 [delta]
     navigate = true
     side-by-side = true
     line-numbers = true
-
 [diff]
-    colorMoved = default
+	colorMoved = true
+	algorithm = histogram
+[fetch]
+	prune = true
+	pruneTags = true
+	all = true
+[pull]
+	rebase = true
+[rebase]
+	autoStash = true
+	updateRefs = true
+[push]
+	autoSetupRemote = true
+[merge]
+	conflictStyle = zdiff3
+[rerere]
+	enabled = true
+	autoUpdate = true
+[tag]
+	sort = version:refname
+[help]
+	autocorrect = prompt

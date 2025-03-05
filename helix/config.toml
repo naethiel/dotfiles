@@ -29,11 +29,10 @@ character = "┊"
 H = ":buffer-previous"
 L = ":buffer-next"
 C-q = ":buffer-close"
-C-right = "jump_view_right"
-C-left = "jump_view_left"
-C-up = "jump_view_up"
-C-down = "jump_view_down"
+S-right = "jump_view_right"
+S-left = "jump_view_left"
+S-up = "jump_view_up"
+S-down = "jump_view_down"
 
 [keys.normal.space]
-F = "file_picker_in_current_buffer_directory"
-
+o = "file_picker_in_current_buffer_directory"

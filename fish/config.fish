@@ -10,13 +10,14 @@ if status is-interactive
     abbr -a .... "../.."
     abbr -a ...... "../../.."
     abbr -a ........ "../../../.."
+    abbr -a lg lazygit
+    abbr -a g git
 end
 
 set -gx PATH "$HOME/.local/bin" $PATH
 set -gx PATH "$HOME/go/bin" $PATH
 set -gx PATH "$HOME/.cargo/bin" $PATH
 set -gx PATH "$HOME/bin" $PATH
-set -gx PATH "$HOME/.config/zide/bin" $PATH
 
 
 zoxide init fish | source
@@ -30,3 +31,5 @@ set -gx MOZ_ENABLE_WAYLAND 1
 # THEME PURE #
 set fish_function_path /home/naethiel/.config/fish/functions/theme-pure/functions/ $fish_function_path
 source /home/naethiel/.config/fish/functions/theme-pure/conf.d/pure.fish
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

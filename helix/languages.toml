@@ -9,28 +9,35 @@ formatter = { command = 'prettier' }
 [language-server]
 biome = { command = "biome", args = ["lsp-proxy"] }
 
+[language-server.vtsls]
+command = "vtsls"
+args = ["--stdio"]
+
+[language-server.vtsls.config.typescript.preferences]
+importModuleSpecifier = "non-relative"
+
 [[language]]
 name = "javascript"
-language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome" ]
+language-servers = [ { name = "vtsls", except-features = [ "format" ] }, "biome" ]
 formatter = { command = "biome", args = ["check", "--apply", "--stdin-file-path", "a.js"] }
 auto-format = true
 
 [[language]]
 name = "typescript"
-language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome" ]
+language-servers = [ { name = "vtsls", except-features = [ "format" ] }, "biome" ]
 formatter = { command = "biome", args = ["check", "--apply", "--stdin-file-path", "a.ts"] }
 auto-format = true
 
 [[language]]
 name = "tsx"
 auto-format = true
-language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome" ]
+language-servers = [ { name = "vtsls", except-features = [ "format" ] }, "biome" ]
 formatter = { command = "biome", args = ["check", "--apply", "--stdin-file-path", "a.tsx"] }
 
 [[language]]
 name = "jsx"
 auto-format = true
-language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome" ]
+language-servers = [ { name = "vtsls", except-features = [ "format" ] }, "biome" ]
 formatter = { command = "biome", args = ["check", "--apply", "--stdin-file-path", "a.jsx"] }
 
 [[language]]

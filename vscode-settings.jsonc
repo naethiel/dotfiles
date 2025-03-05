@@ -1,0 +1,131 @@
+{
+  "workbench.layoutControl.enabled": false,
+  // No minimap
+  "editor.minimap.enabled": false,
+  // make vscode shut up a bit
+  "extensions.ignoreRecommendations": true,
+  "editor.overviewRulerBorder": false,
+  // No 'editors' section in sidebar
+  "explorer.openEditors.visible": 0,
+  // No indent guides in tree view
+  "workbench.tree.renderIndentGuides": "none",
+  "breadcrumbs.filePath": "on",
+  "breadcrumbs.icons": false,
+  // No icon in tabs
+  "workbench.editor.showIcons": false,
+  // Status bar is worth keeping
+  "workbench.statusBar.visible": true,
+  // Highlight unsaved modified tabs
+  "workbench.editor.highlightModifiedTabs": true,
+  // Highlight the line the cursor is on
+  "editor.renderLineHighlight": "all",
+  // Font ligatures are pretty
+  "editor.fontLigatures": true,
+  // smaller tabs
+  "window.density.editorTabHeight": "compact",
+  /* 
+  ----------------------------------------------
+  Editing
+  ----------------------------------------------
+  */
+  "editor.showUnused": true,
+  "editor.codeLens": true,
+  // Fix linting errors on save
+  "editor.codeActionsOnSave": {
+    "source.organizeImports.biome": "explicit",
+    "source.fixAll": "explicit",
+    "quickfix.biome": "explicit"
+  },
+  // Language configurations
+  "[html]": {
+    "editor.formatOnSave": true
+  },
+  "[json]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true
+  },
+  "[css]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true
+  },
+  "[go]": {
+    "editor.formatOnSave": true
+  },
+  "[javascript][javascriptreact][typescript][typescriptreact]": {
+    "editor.codeActionsOnSave": {
+      "source.removeUnusedImports": "explicit",
+      "source.addMissingImports": "explicit",
+      "source.organizeImports.biome": "explicit",
+    },
+    
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true,
+    "editor.linkedEditing": true,
+    "editor.showUnused": true,
+    "editor.codeLens": true,
+  },
+
+  "typescript.referencesCodeLens.enabled": true,
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "typescript.preferences.useAliasesForRenames": false,
+  "typescript.preferences.preferTypeOnlyAutoImports": true,
+  
+  // Always enable emmet on JSX
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  // go LSP settings
+  "go.useLanguageServer": true,
+  "go.toolsManagement.autoUpdate": true,
+  "gopls": {
+    "ui.semanticTokens": true
+  },
+  // fuck folding
+  "editor.folding": true,
+  // inline suggestions
+  "editor.inlineSuggest.enabled": true,
+  // kill url links detection because visual noise
+  "editor.links": false,
+  // No rainbow parens
+  "editor.bracketPairColorization.enabled": false,
+  /* 
+  ----------------------------------------------
+  Misc
+  ----------------------------------------------
+  */
+  // font rendering
+  "editor.lineHeight": 1.6,
+  "window.titleBarStyle": "custom",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "workbench.startupEditor": "none",
+  "window.customTitleBarVisibility": "windowed",
+  "editor.cursorBlinking": "solid",
+  "editor.fontFamily": "\"JetBrains Mono\", Consolas, 'Courier New', monospace",
+  "javascript.preferences.importModuleSpecifier": "non-relative",
+  "window.confirmBeforeClose": "keyboardOnly",
+  "workbench.editor.splitInGroupLayout": "vertical",
+  "remote.SSH.remotePlatform": {
+    "artemis": "linux"
+  },
+  "workbench.editor.editorActionsLocation": "hidden",
+  "githubPullRequests.pullBranch": "never",
+  "githubPullRequests.createOnPublishBranch": "never",
+  "githubPullRequests.pushBranch": "always",
+  "editor.renderWhitespace": "all",
+  "workbench.colorTheme": "GitHub Dark Default",
+  "window.commandCenter": false,
+  "window.menuBarVisibility": "compact",
+  "editor.tabSize": 2,
+  "git.allowForcePush": true,
+  "git.blame.statusBarItem.enabled": true,
+  "git.terminalGitEditor": true,
+  "git.autoStash": true
+}
