@@ -3,6 +3,7 @@
 	editor = hx
 	pager = delta
 	fsMonitor = true
+	autocrlf = input
 [user]
 	name = Nicolas Missika
 	email = nicolas.missika@aive.com
@@ -14,7 +15,7 @@
 	st = status
 	cm = commit -m
 	l = log -20 --pretty=format:'%C(magenta)%h%Creset - %<(24)%C(cyan)%an%Creset %C(dim red)%ar%Creset : %s' --no-merges
-	lc = log -20 --pretty=format:'%C(magenta)%h%Creset - %<(24)%C(cyan)%an%Creset %C(dim red)%ar%Creset : %s' --graph
+	lc = log -20 --pretty=format:'%C(magenta)%h%Creset - %<(24)%C(cyan)%an%Creset %C(dim red)%ar%Creset : %s %C(yellow)%d%Creset' --graph
 	lb = branch -a
 	uncommit = "reset --soft HEAD^"
 	unstage = "reset -- ."

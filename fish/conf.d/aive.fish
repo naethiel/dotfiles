@@ -13,4 +13,3 @@ function autotag -d "applies an autotag on platform-app, either major, minor or 
     tools/auto-tag $argv | xargs git push origin
 end
 
-set -x KUBECTL_EXTERNAL_DIFF kubectl-neat-diff
