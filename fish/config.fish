@@ -19,12 +19,12 @@ set -gx PATH "$HOME/go/bin" $PATH
 set -gx PATH "$HOME/.cargo/bin" $PATH
 set -gx PATH "$HOME/bin" $PATH
 
+set -gx XDG_CONFIG_HOME "$HOME/.config"
 
 set -gx VOLTA_HOME "$HOME/.volta"
 set -gx PATH "$VOLTA_HOME/bin" $PATH
-set -gx EDITOR nano
+set -gx EDITOR hx
 
 set -gx MOZ_ENABLE_WAYLAND 1
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
-

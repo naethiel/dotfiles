@@ -1,13 +1,14 @@
-[[language]]
-name = "html"
-formatter = { command = 'prettier' }
-
-[[language]]
-name = "css"
-formatter = { command = 'prettier' }
 
 [language-server]
 biome = { command = "biome", args = ["lsp-proxy"] }
+
+[[language]]
+name = "html"
+
+[[language]]
+name = "css"
+formatter = { command = "biome", args = ["format", "--stdin-file-path", "a.css"]}
+auto-format = true
 
 [language-server.vtsls]
 command = "vtsls"
@@ -18,29 +19,26 @@ importModuleSpecifier = "non-relative"
 
 [[language]]
 name = "javascript"
-language-servers = [ { name = "vtsls", except-features = [ "format" ] }, "biome" ]
-formatter = { command = "biome", args = ["check", "--apply", "--stdin-file-path", "a.js"] }
+language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome" ]
 auto-format = true
 
 [[language]]
 name = "typescript"
-language-servers = [ { name = "vtsls", except-features = [ "format" ] }, "biome" ]
-formatter = { command = "biome", args = ["check", "--apply", "--stdin-file-path", "a.ts"] }
+language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome" ]
 auto-format = true
 
 [[language]]
 name = "tsx"
+language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome" ]
 auto-format = true
-language-servers = [ { name = "vtsls", except-features = [ "format" ] }, "biome" ]
-formatter = { command = "biome", args = ["check", "--apply", "--stdin-file-path", "a.tsx"] }
-
-[[language]]
-name = "jsx"
-auto-format = true
-language-servers = [ { name = "vtsls", except-features = [ "format" ] }, "biome" ]
-formatter = { command = "biome", args = ["check", "--apply", "--stdin-file-path", "a.jsx"] }
 
 [[language]]
 name = "json"
 language-servers = [ { name = "vscode-json-language-server", except-features = [ "format" ] }, "biome" ]
 formatter = { command = "biome", args = ["format", "--stdin-file-path", "a.json"] }
+auto-format = true
+
+[[language]]
+name = "graphql"
+formatter = { command = "biome", args = ["format", "--stdin-file-path", "a.graphql"] }
+auto-format = true

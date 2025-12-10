@@ -5,6 +5,7 @@ true-color = true
 cursorline = true
 bufferline = "multiple"
 color-modes = true
+end-of-line-diagnostics = "hint"
 
 [editor.lsp]
 display-messages = true
@@ -25,6 +26,9 @@ hidden = false
 render = true
 character = "┊"
 
+[editor.inline-diagnostics]
+cursor-line = "warning"
+
 [keys.normal]
 H = ":buffer-previous"
 L = ":buffer-next"
@@ -33,6 +37,3 @@ S-right = "jump_view_right"
 S-left = "jump_view_left"
 S-up = "jump_view_up"
 S-down = "jump_view_down"
-
-[keys.normal.space]
-o = "file_picker_in_current_buffer_directory"
