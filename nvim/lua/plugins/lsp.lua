@@ -42,23 +42,22 @@ end
 return {
   {
     'neovim/nvim-lspconfig',
-    config = function ()
+    config = function()
+      vim.lsp.config("gopls", {
+        on_attach = on_attach,
+        root_markers = { '.git', 'src/go.mod', 'go.mod' },
+      })
+      vim.lsp.config("biome", {
+        on_attach = on_attach,
+      })
+      vim.lsp.config("ts_ls", {
+        on_attach = function(client, bufnr)
+          client.server_capabilities.documentFormattingProvider = false
 
-      local lsp = require('lspconfig')
-      lsp["gopls"].setup {
-        on_attach = on_attach,
-        root_dir = lsp.util.root_pattern('.git', 'src/go.mod', 'go.mod'),
-      }
-      lsp["biome"].setup {
-        on_attach = on_attach,
-      }
-      lsp["eslint"].setup {
-        settings = {
-          -- helps eslint find the eslintrc when it's placed in a subfolder instead of the cwd root
-          workingDirectories = { mode = "auto" },
-        }
-      }
-      lsp["lua_ls"].setup {
+          on_attach(client, bufnr)
+        end,
+      })
+      vim.lsp.config("lua_ls", {
         settings = {
           Lua = {
             runtime = {
@@ -67,7 +66,7 @@ return {
             },
             diagnostics = {
               -- Get the language server to recognize the `vim` global
-              globals = {'vim'},
+              globals = { 'vim' },
             },
             workspace = {
               -- Make the server aware of Neovim runtime files
@@ -80,32 +79,9 @@ return {
             },
           },
         },
-      }
+      })
+      vim.lsp.enable({"gopls", "biome", "lua_ls", "ts_ls"})
+      vim.diagnostic.config({ virtual_lines = true })
     end
   },
-  {
-    "jose-elias-alvarez/typescript.nvim",
-    config = function()
-      local lsp = require("lspconfig")
-      require("typescript").setup({
-        disable_commands = false, -- prevent the plugin from creating Vim commands
-        debug = false, -- enable debug logging for commands
-        go_to_source_definition = {
-          fallback = true, -- fall back to standard LSP definition on failure
-        },
-        server = { -- pass options to lspconfig's setup method
-          on_attach = function (client, bufnr)
-            client.server_capabilities.documentFormattingProvider = false
-
-            on_attach(client, bufnr)
-          end,
-          root_dir = lsp.util.root_pattern("package.json"),
-          single_file_support = false,
-        },
-      })
-    end
-  }
 }
-
-
-

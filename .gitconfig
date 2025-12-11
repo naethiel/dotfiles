@@ -1,5 +1,5 @@
 [core]
-	excludesfile = /home/naethiel/.gitignore_global
+	excludesfile = /Users/naethiel/.gitignore_global
 	editor = hx
 	pager = delta
 	fsMonitor = true
