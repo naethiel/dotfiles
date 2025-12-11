@@ -41,3 +41,7 @@ build/
 # IDE Specific config files #
 .vscode
 .idea
+
+# Agent files
+CLAUDE.md
+.copilot/
