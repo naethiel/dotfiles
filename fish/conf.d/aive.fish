@@ -1,6 +1,8 @@
 abbr -a kdiff "kubectl diff -k k8s/(kubectl config current-context)"
 abbr -a kapply "kubectl apply -k k8s/(kubectl config current-context)"
 
+set --global GOOGLE_APPLICATION_CREDENTIALS "/Users/naethiel/.config/gcloud/application_default_credentials.json"
+
 function kconfig -d "fetch configMap for a given service in current context via kubectl"
     kubectl get configMap/$argv -o json | jq '.data | to_entries[] | "export "+.key+"=\""+.value+"\""' -r
 end

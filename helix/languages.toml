@@ -17,19 +17,17 @@ args = ["--stdio"]
 [language-server.vtsls.config.typescript.preferences]
 importModuleSpecifier = "non-relative"
 
-[[language]]
-name = "javascript"
-language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome" ]
-auto-format = true
 
 [[language]]
 name = "typescript"
 language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome" ]
+formatter = { command = "biome", args = ["check", "--formatter-enabled", "true",  "--linter-enabled", "true", "--write", "--stdin-file-path", "%{buffer_name}"]}
 auto-format = true
 
 [[language]]
 name = "tsx"
 language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome" ]
+formatter = { command = "biome", args = ["check", "--formatter-enabled", "true",  "--linter-enabled", "true", "--write", "--stdin-file-path", "%{buffer_name}"]}
 auto-format = true
 
 [[language]]
