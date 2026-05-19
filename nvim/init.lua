@@ -48,6 +48,23 @@ vim.keymap.set({ 'n', 'v', 'x' }, 'gl', '$', { desc = 'Go to end of line' })
 vim.keymap.set({ 'n', 'v', 'x' }, 'gh', '^', { desc = 'Go to start of line' })
 vim.keymap.set({ 'n', 'v', 'x' }, '<leader>y', '"+y', { desc = 'Yank to clipboard' })
 
+-- incremental selection treesitter/lsp
+vim.keymap.set({ 'n', 'x', 'o' }, '<A-Up>', function()
+  if vim.treesitter.get_parser(nil, nil, { error = false }) then
+    require('vim.treesitter._select').select_parent(vim.v.count1)
+  else
+    vim.lsp.buf.selection_range(vim.v.count1)
+  end
+end, { desc = 'Select parent treesitter node or outer incremental lsp selections' })
+
+vim.keymap.set({ 'n', 'x', 'o' }, '<A-Down>', function()
+  if vim.treesitter.get_parser(nil, nil, { error = false }) then
+    require('vim.treesitter._select').select_child(vim.v.count1)
+  else
+    vim.lsp.buf.selection_range(-vim.v.count1)
+  end
+end, { desc = 'Select child treesitter node or inner incremental lsp selections' })
+
 -- buffer navigation
 vim.keymap.set('n', 'gp', '<cmd>:bprev<CR>', { desc = 'Previous buffer' })
 vim.keymap.set('n', 'gn', '<cmd>:bnext<CR>', { desc = 'Next buffer' })
@@ -154,11 +171,20 @@ require('lazy').setup({
     'lewis6991/gitsigns.nvim',
     opts = {
       signs = {
-        add = { text = '+' },
-        change = { text = '~' },
-        delete = { text = '_' },
-        topdelete = { text = '‾' },
+        add = { text = '▎' },
+        change = { text = '▎' },
+        delete = { text = '' },
+        topdelete = { text = '' },
         changedelete = { text = '~' },
+        untracked = { text = '┆' },
+      },
+      signs_staged = {
+        add = { text = '▎' },
+        change = { text = '▎' },
+        delete = { text = '' },
+        topdelete = { text = '' },
+        changedelete = { text = '~' },
+        untracked = { text = '┆' },
       },
     },
   },
@@ -208,7 +234,6 @@ require('lazy').setup({
   {
     'echasnovski/mini.nvim',
     config = function()
-      require('mini.ai').setup { n_lines = 500 }
       require('mini.surround').setup()
       local statusline = require 'mini.statusline'
       statusline.setup { use_icons = vim.g.have_nerd_font }
@@ -522,6 +547,32 @@ require('lazy').setup({
       fuzzy = { implementation = 'lua' },
       signature = { enabled = true },
     },
+  },
+  {
+    'MagicDuck/grug-far.nvim',
+
+    config = function()
+      local grug = require 'grug-far'
+      grug.setup {}
+
+      vim.keymap.set({ 'n', 'x' }, '<leader>ss', function()
+        local search = vim.fn.getreg '/'
+        -- surround with \b if "word" search (such as when pressing `*`)
+        if search and vim.startswith(search, '\\<') and vim.endswith(search, '\\>') then
+          search = '\\b' .. search:sub(3, -3) .. '\\b'
+        elseif search and vim.startswith(search, '\\V') then
+          search = search:sub(3)
+        end
+        local inst = grug.open {
+          prefills = {
+            search = search,
+          },
+        }
+        inst:when_ready(function()
+          inst:goto_input 'replacement'
+        end)
+      end, { desc = 'grug-far: Search using @/ register value or visual selection' })
+    end,
   },
 }, {
   ui = {
