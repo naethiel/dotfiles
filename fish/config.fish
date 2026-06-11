@@ -28,3 +28,7 @@ set -gx EDITOR hx
 set -gx MOZ_ENABLE_WAYLAND 1
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH
