@@ -311,6 +311,7 @@ vim.api.nvim_create_autocmd('User', {
 })
 
 -- Mini
+require('mini.pairs').setup()
 require('mini.surround').setup()
 local statusline = require 'mini.statusline'
 statusline.setup { use_icons = vim.g.have_nerd_font }
@@ -339,6 +340,7 @@ local ensure_installed = {
   'tsx',
   'javascript',
   'go',
+  'graphql',
   'json',
   'yaml',
   'css',
@@ -353,7 +355,11 @@ vim.api.nvim_create_autocmd('FileType', {
 
 -- Completion (blink.cmp)
 require('blink.cmp').setup {
-  keymap = { preset = 'enter' },
+  keymap = {
+    preset = 'enter',
+    ['<Tab>'] = {},
+    ['<S-Tab>'] = {},
+  },
   appearance = { nerd_font_variant = 'mono' },
   completion = { documentation = { auto_show = false, auto_show_delay_ms = 500 } },
   sources = {
@@ -527,14 +533,14 @@ local capabilities = require('blink.cmp').get_lsp_capabilities()
 
 local servers = {
   gopls = {},
-  tsgo = {
+  ts_ls = {
     settings = {
       typescript = {
         preferences = {
           importModuleSpecifier = 'non-relative',
         },
       },
-      typescriptreact = {
+      javascript = {
         preferences = {
           importModuleSpecifier = 'non-relative',
         },
@@ -562,6 +568,7 @@ local servers = {
       Lua = { completion = { callSnippet = 'Replace' } },
     },
   },
+  graphql = {},
   biome = {},
 }
 
