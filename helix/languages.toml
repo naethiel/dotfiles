@@ -1,6 +1,21 @@
+[language-server.biome]
+command = "biome"
+args = ["lsp-proxy"] 
 
-[language-server]
-biome = { command = "biome", args = ["lsp-proxy"] }
+[language-server.vtsls]
+command = "vtsls"
+args = ["--stdio"]
+
+[language-server.vtsls.config.typescript.preferences]
+importModuleSpecifier = "non-relative"
+
+[language-server.typescript]
+command = "tsc"
+args = ["--lsp", "--stdio"]
+config.hostInfo = "helix"
+
+[language-server.gopls.config]
+"formatting.gofumpt" = true
 
 [[language]]
 name = "html"
@@ -10,23 +25,15 @@ name = "css"
 formatter = { command = "biome", args = ["format", "--stdin-file-path", "a.css"]}
 auto-format = true
 
-[language-server.vtsls]
-command = "vtsls"
-args = ["--stdio"]
-
-[language-server.vtsls.config.typescript.preferences]
-importModuleSpecifier = "non-relative"
-
-
 [[language]]
 name = "typescript"
-language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome" ]
+language-servers = [ { name = "typescript", except-features = [ "format" ] } ]
 formatter = { command = "biome", args = ["check", "--formatter-enabled", "true",  "--linter-enabled", "true", "--write", "--stdin-file-path", "%{buffer_name}"]}
 auto-format = true
 
 [[language]]
 name = "tsx"
-language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] }, "biome" ]
+language-servers = [ { name = "typescript", except-features = [ "format" ] } ]
 formatter = { command = "biome", args = ["check", "--formatter-enabled", "true",  "--linter-enabled", "true", "--write", "--stdin-file-path", "%{buffer_name}"]}
 auto-format = true
 
@@ -40,3 +47,4 @@ auto-format = true
 name = "graphql"
 formatter = { command = "biome", args = ["format", "--stdin-file-path", "a.graphql"] }
 auto-format = true
+

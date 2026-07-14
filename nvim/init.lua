@@ -379,7 +379,7 @@ require('conform').setup {
   notify_on_error = false,
   formatters_by_ft = {
     lua = { 'stylua' },
-    go = { 'gofmt' },
+    go = { 'gofumpt', 'gofmt', stop_after_first = true },
     typescript = { 'biome-check', 'prettierd', 'prettier', stop_after_first = true },
     javascript = { 'biome-check', 'prettierd', 'prettier', stop_after_first = true },
     typescriptreact = { 'biome-check', 'prettierd', 'prettier', stop_after_first = true },
@@ -395,7 +395,7 @@ require('conform').setup {
 require('flash').setup { modes = { char = { enabled = false } } }
 vim.keymap.set({ 'n', 'x', 'o' }, 'gw', function()
   require('flash').jump()
-end, { desc = 'Flash jump' })
+end, { desc = 'flash jump' })
 vim.keymap.set({ 'n', 'x', 'o' }, 'gW', function()
   require('flash').treesitter()
 end, { desc = 'Flash treesitter' })
@@ -432,6 +432,7 @@ require('which-key').setup {
 require('yazi').setup {
   open_for_directories = false,
   keymaps = { show_help = '<f1>' },
+  highlight_hovered_buffers_in_same_directory = false,
 }
 vim.g.loaded_netrwPlugin = 1
 vim.keymap.set({ 'n', 'v' }, '<leader>e', '<cmd>Yazi<cr>', { desc = 'Yazi (current file)' })
@@ -493,7 +494,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- Helix space-mode LSP keymaps
     map('<leader>r', vim.lsp.buf.rename, 'Rename symbol')
     map('<leader>a', vim.lsp.buf.code_action, 'Code action', { 'n', 'x' })
-    map('K', vim.lsp.buf.hover, 'Hover docs')
+    map('K', function()
+      vim.lsp.buf.hover {
+        border = 'single',
+        max_height = 25,
+        max_width = 120,
+      }
+    end, 'Hover docs')
 
     -- Highlight references on hover
     local client = vim.lsp.get_client_by_id(event.data.client_id)
@@ -525,7 +532,8 @@ vim.diagnostic.config {
   severity_sort = true,
   float = { border = 'rounded', source = 'if_many' },
   underline = { severity = vim.diagnostic.severity.ERROR },
-  virtual_text = { source = 'if_many', spacing = 2 },
+  virtual_text = { source = 'if_many', spacing = 2, current_line = false },
+  virtual_lines = { current_line = true },
 }
 
 -- LSP server configurations
@@ -534,18 +542,26 @@ local capabilities = require('blink.cmp').get_lsp_capabilities()
 local servers = {
   gopls = {},
   ts_ls = {
-    settings = {
-      typescript = {
-        preferences = {
-          importModuleSpecifier = 'non-relative',
-        },
-      },
-      javascript = {
-        preferences = {
-          importModuleSpecifier = 'non-relative',
-        },
+    init_options = {
+      hostInfo = 'neovim',
+      preferences = {
+        importModuleSpecifier = 'non-relative',
+        importModuleSpecifierPreference = 'non-relative',
       },
     },
+    -- -- for vtsls
+    -- settings = {
+    --   typescript = {
+    --     preferences = {
+    --       importModuleSpecifier = 'non-relative',
+    --     },
+    --   },
+    --   javascript = {
+    --     preferences = {
+    --       importModuleSpecifier = 'non-relative',
+    --     },
+    --   },
+    -- },
   },
   yamlls = {
     settings = {
@@ -577,5 +593,3 @@ for server_name, server_opts in pairs(servers) do
   vim.lsp.config(server_name, server_opts)
   vim.lsp.enable(server_name)
 end
-
--- vim: ts=2 sts=2 sw=2 et

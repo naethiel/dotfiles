@@ -1,5 +1,6 @@
 abbr -a kdiff "kubectl diff -k k8s/(kubectl config current-context)"
 abbr -a kapply "kubectl apply -k k8s/(kubectl config current-context)"
+abbr -a kuse "kubectl config use-context"
 
 set --global GOOGLE_APPLICATION_CREDENTIALS "/Users/naethiel/.config/gcloud/application_default_credentials.json"
 

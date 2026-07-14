@@ -44,6 +44,16 @@ C-y = [
 ]
 "ù" = "@["
 "$" = "@]"
+C-g = [
+  ":write-all", 
+  ":new", 
+  ":insert-output lazygit", 
+  ":buffer-close!", 
+  ":set mouse false", 
+  ":set mouse true",
+  ":redraw", 
+  ":reload-all"
+]
 
 # custom mode to put all my stuff
 [keys.normal."="]
