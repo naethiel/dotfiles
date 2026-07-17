@@ -188,6 +188,9 @@ vim.pack.add {
   -- Git signs
   gh 'lewis6991/gitsigns.nvim',
 
+  -- Multicursor (Helix-style)
+  gh 'jake-stewart/multicursor.nvim',
+
   -- Lazydev: Lua LSP enhancements
   gh 'folke/lazydev.nvim',
 
@@ -248,8 +251,11 @@ end, { desc = 'Jumplist picker' })
 vim.keymap.set('n', '<leader>/', function()
   Snacks.picker.grep()
 end, { desc = 'Global search' })
-vim.keymap.set('n', '<leader>d', function()
+vim.keymap.set('n', '<leader>D', function()
   Snacks.picker.diagnostics()
+end, { desc = 'Diagnostics picker' })
+vim.keymap.set('n', '<leader>d', function()
+  Snacks.picker.diagnostics_buffer()
 end, { desc = 'Diagnostics picker' })
 vim.keymap.set('n', "<leader>'", function()
   Snacks.picker.resume()
@@ -271,7 +277,7 @@ end, { desc = 'Search word' })
 vim.keymap.set('n', '<leader>g', function()
   Snacks.picker.git_status()
 end, { desc = 'Git status' })
-vim.keymap.set('n', '<leader>gg', function()
+vim.keymap.set('n', '<C-g>', function()
   Snacks.lazygit()
 end, { desc = 'Lazygit' })
 
@@ -457,6 +463,99 @@ require('gitsigns').setup {
     untracked = { text = '┆' },
   },
 }
+
+-- Multicursor (Helix-style)
+-- +-----------+------+------------------------------------------+
+-- | Key       | Mode | Action                                   |
+-- +-----------+------+------------------------------------------+
+-- | C         | n/x  | Add cursor on line below                 |
+-- | <A-C>     | n/x  | Add cursor on line above                 |
+-- | <A-n/N>   | n/x  | Add cursor to next/prev match            |
+-- | <A-s/S>   | n/x  | Skip to next/prev match                  |
+-- | <A-a>     | n/x  | Add cursor to all matches in buffer      |
+-- | S         | x    | Split selections by regex                |
+-- | M         | x    | Match cursors within visual selection    |
+-- | &         | x    | Align cursor columns                     |
+-- | I / A     | x    | Insert/append at each selection line     |
+-- | ,         | n/x  | Keep only main cursor  *                 |
+-- | <A-,>     | n/x  | Remove main cursor     *                 |
+-- | ( / )     | n/x  | Cycle through cursors  *                 |
+-- | <Esc>     | n    | Re-enable or clear cursors *             |
+-- | <C-click> | n    | Toggle cursor with mouse                 |
+-- +-----------+------+------------------------------------------+
+-- * only active when multiple cursors exist
+local mc = require 'multicursor-nvim'
+mc.setup()
+
+-- C / Alt-C: add cursor below/above (Helix C)
+vim.keymap.set({ 'n', 'x' }, 'C', function()
+  mc.lineAddCursor(1)
+end, { desc = 'Add cursor below' })
+vim.keymap.set({ 'n', 'x' }, '<A-C>', function()
+  mc.lineAddCursor(-1)
+end, { desc = 'Add cursor above' })
+
+-- Add/skip cursor to next/prev match of word or selection
+vim.keymap.set({ 'n', 'x' }, '<A-n>', function()
+  mc.matchAddCursor(1)
+end, { desc = 'Add cursor to next match' })
+vim.keymap.set({ 'n', 'x' }, '<A-N>', function()
+  mc.matchAddCursor(-1)
+end, { desc = 'Add cursor to prev match' })
+vim.keymap.set({ 'n', 'x' }, '<A-s>', function()
+  mc.matchSkipCursor(1)
+end, { desc = 'Skip to next match' })
+vim.keymap.set({ 'n', 'x' }, '<A-S>', function()
+  mc.matchSkipCursor(-1)
+end, { desc = 'Skip to prev match' })
+
+-- Select all matches of word/selection in buffer
+vim.keymap.set({ 'n', 'x' }, '<A-a>', mc.matchAllAddCursors, { desc = 'Add cursor to all matches' })
+
+-- Visual: split selections by regex (Helix S) and match within selection
+vim.keymap.set('x', 'S', mc.splitCursors, { desc = 'Split cursors by regex' })
+vim.keymap.set('x', 'M', mc.matchCursors, { desc = 'Match cursors in selection' })
+
+-- Align cursor columns (Helix &)
+vim.keymap.set('x', '&', mc.alignCursors, { desc = 'Align cursors' })
+
+-- Insert/append at each line of visual selection (Helix block-insert style)
+vim.keymap.set('x', 'I', mc.insertVisual, { desc = 'Insert at start of each selection' })
+vim.keymap.set('x', 'A', mc.appendVisual, { desc = 'Append at end of each selection' })
+
+-- Ctrl+click to add/remove cursors
+vim.keymap.set('n', '<c-leftmouse>', mc.handleMouse)
+vim.keymap.set('n', '<c-leftdrag>', mc.handleMouseDrag)
+vim.keymap.set('n', '<c-leftrelease>', mc.handleMouseRelease)
+
+-- Keymap layer: active only when multiple cursors exist
+mc.addKeymapLayer(function(layerSet)
+  -- Helix , to keep only primary cursor; Alt-, to remove primary
+  layerSet({ 'n', 'x' }, ',', mc.clearCursors, { desc = 'Keep only main cursor' })
+  layerSet({ 'n', 'x' }, '<A-,>', mc.deleteCursor, { desc = 'Remove main cursor' })
+
+  -- Cycle through cursors (Helix ( / ))
+  layerSet({ 'n', 'x' }, '(', mc.prevCursor, { desc = 'Prev cursor' })
+  layerSet({ 'n', 'x' }, ')', mc.nextCursor, { desc = 'Next cursor' })
+
+  -- Esc: re-enable cursors if disabled, else clear them
+  layerSet('n', '<Esc>', function()
+    if not mc.cursorsEnabled() then
+      mc.enableCursors()
+    else
+      mc.clearCursors()
+    end
+  end, { desc = 'Enable or clear cursors' })
+end)
+
+-- Highlight groups for cursors
+vim.api.nvim_set_hl(0, 'MultiCursorCursor', { reverse = true })
+vim.api.nvim_set_hl(0, 'MultiCursorVisual', { link = 'Visual' })
+vim.api.nvim_set_hl(0, 'MultiCursorSign', { link = 'SignColumn' })
+vim.api.nvim_set_hl(0, 'MultiCursorMatchPreview', { link = 'Search' })
+vim.api.nvim_set_hl(0, 'MultiCursorDisabledCursor', { reverse = true })
+vim.api.nvim_set_hl(0, 'MultiCursorDisabledVisual', { link = 'Visual' })
+vim.api.nvim_set_hl(0, 'MultiCursorDisabledSign', { link = 'SignColumn' })
 
 -- Lazydev (Lua LSP enhancements)
 require('lazydev').setup {
