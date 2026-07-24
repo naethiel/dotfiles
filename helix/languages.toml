@@ -27,13 +27,13 @@ auto-format = true
 
 [[language]]
 name = "typescript"
-language-servers = [ { name = "typescript", except-features = [ "format" ] } ]
+language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] } ]
 formatter = { command = "biome", args = ["check", "--formatter-enabled", "true",  "--linter-enabled", "true", "--write", "--stdin-file-path", "%{buffer_name}"]}
 auto-format = true
 
 [[language]]
 name = "tsx"
-language-servers = [ { name = "typescript", except-features = [ "format" ] } ]
+language-servers = [ { name = "typescript-language-server", except-features = [ "format" ] } ]
 formatter = { command = "biome", args = ["check", "--formatter-enabled", "true",  "--linter-enabled", "true", "--write", "--stdin-file-path", "%{buffer_name}"]}
 auto-format = true
 
@@ -48,3 +48,6 @@ name = "graphql"
 formatter = { command = "biome", args = ["format", "--stdin-file-path", "a.graphql"] }
 auto-format = true
 
+[[lanugage]]
+name = "go"
+auto-format = true

@@ -26,3 +26,7 @@ function autotag -d "applies an autotag on platform-app, either major, minor or 
 
     tools/auto-tag $argv | xargs git push origin
 end
+
+# proto
+set -gx PROTO_HOME "$HOME/.proto";
+set -gx PATH "$PROTO_HOME/shims" "$PROTO_HOME/bin" $PATH;
