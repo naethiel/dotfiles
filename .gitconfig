@@ -1,6 +1,6 @@
 [core]
 	excludesfile = /Users/naethiel/.gitignore_global
-	editor = hx
+	editor = nvim
 	pager = delta
 	fsMonitor = true
 	autocrlf = input

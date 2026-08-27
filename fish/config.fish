@@ -23,7 +23,7 @@ set -gx XDG_CONFIG_HOME "$HOME/.config"
 
 set -gx VOLTA_HOME "$HOME/.volta"
 set -gx PATH "$VOLTA_HOME/bin" $PATH
-set -gx EDITOR hx
+set -gx EDITOR nvim
 
 set -gx MOZ_ENABLE_WAYLAND 1
 
